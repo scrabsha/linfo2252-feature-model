@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="comlinfo2252lab1featureModel">
+			<and mandatory="true" name="Online Shop">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Back Office">
+					<and mandatory="true" name="Category">
+						<feature name="Catalog"/>
+					</and>
+					<and mandatory="true" name="Article Edition">
+						<feature name="Sales"/>
+						<feature name="Stock management"/>
+					</and>
+					<feature name="Order Visualisation"/>
+					<feature mandatory="true" name="Invoice Creation"/>
+				</and>
+				<and name="Front Office">
+					<and name="Online Shopping">
+						<graphics key="collapsed" value="false"/>
+						<or mandatory="true" name="Order Retrieval">
+							<and name="Shipping">
+								<feature mandatory="true" name="Online Payment"/>
+							</and>
+							<feature name="Click and Collect"/>
+						</or>
+						<feature mandatory="true" name="Cart"/>
+						<and name="User Authentification">
+							<feature name="Favourite items"/>
+						</and>
+					</and>
+				</and>
+			</and>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>Online Shopping</var>
+				<var>Order Visualisation</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
