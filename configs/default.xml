@@ -3,8 +3,7 @@
 	<feature name="comlinfo2252lab1featureModel"/>
 	<feature name="Online Shop"/>
 	<feature name="Back Office"/>
-	<feature name="Category"/>
-	<feature name="Catalog"/>
+	<feature name="Category / Catalog"/>
 	<feature name="Article Edition"/>
 	<feature name="Sales"/>
 	<feature name="Stock management"/>
@@ -16,7 +15,11 @@
 	<feature name="Shipping"/>
 	<feature name="Online Payment"/>
 	<feature name="Click and Collect"/>
+	<feature name="Pickup date"/>
 	<feature name="Cart"/>
 	<feature name="User Authentification"/>
 	<feature name="Favourite items"/>
+	<feature name="User review"/>
+	<feature name="Search engine"/>
+	<feature name="Shop theme"/>
 </configuration>

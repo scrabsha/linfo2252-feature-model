@@ -13,40 +13,46 @@
 			<and mandatory="true" name="Online Shop">
 				<graphics key="collapsed" value="false"/>
 				<and mandatory="true" name="Back Office">
-					<and mandatory="true" name="Category">
-						<feature name="Catalog"/>
-					</and>
-					<and mandatory="true" name="Article Edition">
-						<feature name="Sales"/>
-						<feature name="Stock management"/>
-					</and>
-					<feature name="Order Visualisation"/>
-					<feature mandatory="true" name="Invoice Creation"/>
+					<feature mandatory="true" name="Category / Catalog">
+					<graphics key="collapsed" value="false"/>
+				</feature>
+				<and mandatory="true" name="Article Edition">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Sales"/>
+					<feature name="Stock management"/>
 				</and>
-				<and name="Front Office">
-					<and name="Online Shopping">
-						<graphics key="collapsed" value="false"/>
-						<or mandatory="true" name="Order Retrieval">
-							<and name="Shipping">
-								<feature mandatory="true" name="Online Payment"/>
-							</and>
-							<feature name="Click and Collect"/>
-						</or>
-						<feature mandatory="true" name="Cart"/>
-						<and name="User Authentification">
-							<feature name="Favourite items"/>
+				<feature name="Order Visualisation"/>
+				<feature mandatory="true" name="Invoice Creation"/>
+			</and>
+			<and name="Front Office">
+				<and name="Online Shopping">
+					<graphics key="collapsed" value="false"/>
+					<or mandatory="true" name="Order Retrieval">
+						<and name="Shipping">
+							<feature mandatory="true" name="Online Payment"/>
 						</and>
+						<and name="Click and Collect">
+							<feature name="Pickup date"/>
+						</and>
+					</or>
+					<feature mandatory="true" name="Cart"/>
+					<and name="User Authentification">
+						<feature name="Favourite items"/>
+						<feature name="User review"/>
 					</and>
 				</and>
+				<feature name="Search engine"/>
+				<feature name="Shop theme"/>
 			</and>
 		</and>
-	</struct>
-	<constraints>
-		<rule>
-			<imp>
-				<var>Online Shopping</var>
-				<var>Order Visualisation</var>
-			</imp>
-		</rule>
-	</constraints>
+	</and>
+</struct>
+<constraints>
+	<rule>
+		<imp>
+			<var>Online Shopping</var>
+			<var>Order Visualisation</var>
+		</imp>
+	</rule>
+</constraints>
 </featureModel>
