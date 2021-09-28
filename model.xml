@@ -24,7 +24,7 @@
 				<feature name="Order Visualisation"/>
 				<feature mandatory="true" name="Invoice Creation"/>
 			</and>
-			<and name="Front Office">
+			<and mandatory="true" name="Front Office">
 				<and name="Online Shopping">
 					<graphics key="collapsed" value="false"/>
 					<or mandatory="true" name="Order Retrieval">
