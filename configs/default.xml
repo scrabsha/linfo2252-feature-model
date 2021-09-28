@@ -25,4 +25,9 @@
 	<feature name="User review"/>
 	<feature name="Search engine"/>
 	<feature name="Shop theme"/>
+	<feature name="Payment"/>
+	<feature name="Cash"/>
+	<feature name="Bank Transfer"/>
+	<feature name="Credit Card"/>
+	<feature name="Paypal"/>
 </configuration>

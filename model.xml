@@ -49,6 +49,12 @@
 				<feature name="Search engine"/>
 				<feature name="Shop theme"/>
 			</and>
+			<and mandatory="true" name="Payment">
+				<feature mandatory="true" name="Cash"/>
+				<feature name="Bank Transfer"/>
+				<feature mandatory="true" name="Credit Card"/>
+				<feature name="Paypal"/>
+			</and>
 		</and>
 	</and>
 </struct>
@@ -57,6 +63,15 @@
 		<imp>
 			<var>Online Shopping</var>
 			<var>Order Visualisation</var>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<disj>
+				<var>Paypal</var>
+				<var>Bank Transfer</var>
+			</disj>
+			<var>Online Shopping</var>
 		</imp>
 	</rule>
 </constraints>
