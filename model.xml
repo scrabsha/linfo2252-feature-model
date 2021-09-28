@@ -29,6 +29,11 @@
 					<graphics key="collapsed" value="false"/>
 					<or mandatory="true" name="Order Retrieval">
 						<and name="Shipping">
+							<or mandatory="true" name="Shipment Method">
+								<graphics key="collapsed" value="false"/>
+								<feature name="Home delivery"/>
+								<feature name="Collection Point"/>
+							</or>
 							<feature mandatory="true" name="Online Payment"/>
 						</and>
 						<and name="Click and Collect">

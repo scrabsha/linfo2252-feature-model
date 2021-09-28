@@ -13,6 +13,9 @@
 	<feature name="Online Shopping"/>
 	<feature name="Order Retrieval"/>
 	<feature name="Shipping"/>
+	<feature name="Shipment Method"/>
+	<feature name="Home delivery"/>
+	<feature name="Collection Point"/>
 	<feature name="Online Payment"/>
 	<feature name="Click and Collect"/>
 	<feature name="Pickup date"/>
