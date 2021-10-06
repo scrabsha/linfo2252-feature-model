@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature name="comlinfo2252lab1featureModel"/>
-	<feature name="Online Shop"/>
-	<feature name="Category / Catalog"/>
+	<feature name="Online Shop context"/>
+	<feature name="Pickup calendar full"/>
+	<feature name="Delivery service available"/>
+	<feature name="No physical facilities"/>
+	<feature name="User logged in"/>
+	<feature name="Disabled user"/>
+	<feature name="Don't trust online payment"/>
+	<feature name="No order to prepare"/>
+	<feature name="Delivery-specific article"/>
+	<feature name="Click and collect-only article"/>
+	<feature name="Home delivery-only article"/>
+	<feature name="Online Shop features"/>
 	<feature name="Back Office"/>
 	<feature name="Product Edition"/>
 	<feature name="Sales"/>
@@ -11,10 +21,8 @@
 	<feature name="Invoice"/>
 	<feature name="Order Retrieval"/>
 	<feature name="Shipping"/>
-	<feature name="Shipment Method"/>
 	<feature name="Home Delivery"/>
 	<feature name="Collection Point"/>
-	<feature name="Online Payment"/>
 	<feature name="Click and Collect"/>
 	<feature name="Pickup Date"/>
 	<feature name="Cart"/>
@@ -24,6 +32,7 @@
 	<feature name="Front Office"/>
 	<feature name="Search Engine"/>
 	<feature name="Shop Theme"/>
+	<feature name="Category / Catalog"/>
 	<feature name="Payment"/>
 	<feature name="Cash"/>
 	<feature name="Bank Transfer"/>

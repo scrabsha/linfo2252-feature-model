@@ -10,42 +10,52 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="comlinfo2252lab1featureModel">
-			<and mandatory="true" name="Online Shop">
-				<graphics key="collapsed" value="false"/>
-				<feature mandatory="true" name="Category / Catalog">
-				<graphics key="collapsed" value="false"/>
-			</feature>
-			<and mandatory="true" name="Back Office">
-				<and mandatory="true" name="Product Edition">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Sales"/>
-					<feature name="Stock Management"/>
+			<and mandatory="true" name="Online Shop context">
+				<feature name="Pickup calendar full"/>
+				<feature name="Delivery service available"/>
+				<feature name="No physical facilities"/>
+				<and name="User logged in">
+					<feature name="Disabled user"/>
+					<feature name="Don't trust online payment"/>
 				</and>
-				<feature name="Order Visualisation"/>
-				<feature mandatory="true" name="Invoice"/>
+				<feature name="No order to prepare"/>
+				<and name="Delivery-specific article">
+					<feature name="Click and collect-only article"/>
+					<feature name="Home delivery-only article"/>
+				</and>
 			</and>
-			<or mandatory="true" name="Order Retrieval">
-				<and name="Shipping">
-					<or mandatory="true" name="Shipment Method">
+			<and mandatory="true" name="Online Shop features">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Back Office">
+					<and mandatory="true" name="Product Edition">
 						<graphics key="collapsed" value="false"/>
+						<feature name="Sales"/>
+						<feature name="Stock Management"/>
+					</and>
+					<feature name="Order Visualisation"/>
+					<feature mandatory="true" name="Invoice"/>
+				</and>
+				<or mandatory="true" name="Order Retrieval">
+					<or name="Shipping">
 						<feature name="Home Delivery"/>
 						<feature name="Collection Point"/>
 					</or>
-					<feature mandatory="true" name="Online Payment"/>
+					<and name="Click and Collect">
+						<feature name="Pickup Date"/>
+					</and>
+				</or>
+				<feature mandatory="true" name="Cart"/>
+				<and name="User Profile">
+					<feature name="Favourite Items"/>
+					<feature name="User Review"/>
 				</and>
-				<and name="Click and Collect">
-					<feature name="Pickup Date"/>
+				<and mandatory="true" name="Front Office">
+					<feature name="Search Engine"/>
+					<feature name="Shop Theme"/>
 				</and>
-			</or>
-			<feature mandatory="true" name="Cart"/>
-			<and name="User Profile">
-				<feature name="Favourite Items"/>
-				<feature name="User Review"/>
-			</and>
-			<and mandatory="true" name="Front Office">
-				<feature name="Search Engine"/>
-				<feature name="Shop Theme"/>
-			</and>
+				<feature mandatory="true" name="Category / Catalog">
+				<graphics key="collapsed" value="false"/>
+			</feature>
 			<or mandatory="true" name="Payment">
 				<feature name="Cash"/>
 				<feature name="Bank Transfer"/>
@@ -55,4 +65,103 @@
 		</and>
 	</and>
 </struct>
+<constraints>
+	<rule>
+		<imp>
+			<var>Shipping</var>
+			<not>
+				<var>Cash</var>
+			</not>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Pickup calendar full</var>
+			<not>
+				<var>Click and Collect</var>
+			</not>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Delivery service available</var>
+			<not>
+				<var>Shipping</var>
+			</not>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>User logged in</var>
+			<var>User Profile</var>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Disabled user</var>
+			<conj>
+				<not>
+					<var>Click and Collect</var>
+				</not>
+				<not>
+					<var>Collection Point</var>
+				</not>
+			</conj>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Don't trust online payment</var>
+			<conj>
+				<not>
+					<var>Shipping</var>
+				</not>
+				<conj>
+					<not>
+						<var>Bank Transfer</var>
+					</not>
+					<not>
+						<var>Paypal</var>
+					</not>
+				</conj>
+			</conj>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>No order to prepare</var>
+			<not>
+				<var>Order Visualisation</var>
+			</not>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Click and collect-only article</var>
+			<var>Click and Collect</var>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
+			<var>Home delivery-only article</var>
+			<var>Home Delivery</var>
+		</imp>
+	</rule>
+	<rule>
+		<conj>
+			<imp>
+				<var>Click and collect-only article</var>
+				<not>
+					<var>Home delivery-only article</var>
+				</not>
+			</imp>
+			<imp>
+				<var>Home delivery-only article</var>
+				<not>
+					<var>Click and collect-only article</var>
+				</not>
+			</imp>
+		</conj>
+	</rule>
+</constraints>
 </featureModel>
