@@ -12,67 +12,47 @@
 		<and abstract="true" mandatory="true" name="comlinfo2252lab1featureModel">
 			<and mandatory="true" name="Online Shop">
 				<graphics key="collapsed" value="false"/>
-				<and mandatory="true" name="Back Office">
-					<feature mandatory="true" name="Category / Catalog">
-					<graphics key="collapsed" value="false"/>
-				</feature>
-				<and mandatory="true" name="Article Edition">
+				<feature mandatory="true" name="Category / Catalog">
+				<graphics key="collapsed" value="false"/>
+			</feature>
+			<and mandatory="true" name="Back Office">
+				<and mandatory="true" name="Product Edition">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Sales"/>
-					<feature name="Stock management"/>
+					<feature name="Stock Management"/>
 				</and>
 				<feature name="Order Visualisation"/>
-				<feature mandatory="true" name="Invoice Creation"/>
+				<feature mandatory="true" name="Invoice"/>
+			</and>
+			<or mandatory="true" name="Order Retrieval">
+				<and name="Shipping">
+					<or mandatory="true" name="Shipment Method">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Home Delivery"/>
+						<feature name="Collection Point"/>
+					</or>
+					<feature mandatory="true" name="Online Payment"/>
+				</and>
+				<and name="Click and Collect">
+					<feature name="Pickup Date"/>
+				</and>
+			</or>
+			<feature mandatory="true" name="Cart"/>
+			<and name="User Profile">
+				<feature name="Favourite Items"/>
+				<feature name="User Review"/>
 			</and>
 			<and mandatory="true" name="Front Office">
-				<and name="Online Shopping">
-					<graphics key="collapsed" value="false"/>
-					<or mandatory="true" name="Order Retrieval">
-						<and name="Shipping">
-							<or mandatory="true" name="Shipment Method">
-								<graphics key="collapsed" value="false"/>
-								<feature name="Home delivery"/>
-								<feature name="Collection Point"/>
-							</or>
-							<feature mandatory="true" name="Online Payment"/>
-						</and>
-						<and name="Click and Collect">
-							<feature name="Pickup date"/>
-						</and>
-					</or>
-					<feature mandatory="true" name="Cart"/>
-					<and name="User Authentification">
-						<feature name="Favourite items"/>
-						<feature name="User review"/>
-					</and>
-				</and>
-				<feature name="Search engine"/>
-				<feature name="Shop theme"/>
+				<feature name="Search Engine"/>
+				<feature name="Shop Theme"/>
 			</and>
-			<and mandatory="true" name="Payment">
-				<feature mandatory="true" name="Cash"/>
+			<or mandatory="true" name="Payment">
+				<feature name="Cash"/>
 				<feature name="Bank Transfer"/>
-				<feature mandatory="true" name="Credit Card"/>
+				<feature name="Credit Card"/>
 				<feature name="Paypal"/>
-			</and>
+			</or>
 		</and>
 	</and>
 </struct>
-<constraints>
-	<rule>
-		<imp>
-			<var>Online Shopping</var>
-			<var>Order Visualisation</var>
-		</imp>
-	</rule>
-	<rule>
-		<imp>
-			<disj>
-				<var>Paypal</var>
-				<var>Bank Transfer</var>
-			</disj>
-			<var>Online Shopping</var>
-		</imp>
-	</rule>
-</constraints>
 </featureModel>
