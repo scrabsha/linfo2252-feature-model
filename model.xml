@@ -16,12 +16,12 @@
 				<feature name="No physical facilities"/>
 				<and name="User logged in">
 					<feature name="Disabled user"/>
-					<feature name="Don't trust online payment"/>
 				</and>
 				<feature name="No order to prepare"/>
-				<and name="Delivery-specific article">
-					<feature name="Click and collect-only article"/>
-					<feature name="Home delivery-only article"/>
+				<and name="Delivery-specific product">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Click and collect-only product"/>
+					<feature name="Home delivery-only product"/>
 				</and>
 			</and>
 			<and mandatory="true" name="Online Shop features">
@@ -92,6 +92,19 @@
 	</rule>
 	<rule>
 		<imp>
+			<var>No physical facilities</var>
+			<conj>
+				<not>
+					<var>Click and Collect</var>
+				</not>
+				<not>
+					<var>Cash</var>
+				</not>
+			</conj>
+		</imp>
+	</rule>
+	<rule>
+		<imp>
 			<var>User logged in</var>
 			<var>User Profile</var>
 		</imp>
@@ -111,24 +124,6 @@
 	</rule>
 	<rule>
 		<imp>
-			<var>Don't trust online payment</var>
-			<conj>
-				<not>
-					<var>Shipping</var>
-				</not>
-				<conj>
-					<not>
-						<var>Bank Transfer</var>
-					</not>
-					<not>
-						<var>Paypal</var>
-					</not>
-				</conj>
-			</conj>
-		</imp>
-	</rule>
-	<rule>
-		<imp>
 			<var>No order to prepare</var>
 			<not>
 				<var>Order Visualisation</var>
@@ -137,28 +132,28 @@
 	</rule>
 	<rule>
 		<imp>
-			<var>Click and collect-only article</var>
+			<var>Click and collect-only product</var>
 			<var>Click and Collect</var>
 		</imp>
 	</rule>
 	<rule>
 		<imp>
-			<var>Home delivery-only article</var>
+			<var>Home delivery-only product</var>
 			<var>Home Delivery</var>
 		</imp>
 	</rule>
 	<rule>
 		<conj>
 			<imp>
-				<var>Click and collect-only article</var>
+				<var>Click and collect-only product</var>
 				<not>
-					<var>Home delivery-only article</var>
+					<var>Home delivery-only product</var>
 				</not>
 			</imp>
 			<imp>
-				<var>Home delivery-only article</var>
+				<var>Home delivery-only product</var>
 				<not>
-					<var>Click and collect-only article</var>
+					<var>Click and collect-only product</var>
 				</not>
 			</imp>
 		</conj>

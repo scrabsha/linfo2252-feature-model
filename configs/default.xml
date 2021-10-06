@@ -7,11 +7,10 @@
 	<feature name="No physical facilities"/>
 	<feature name="User logged in"/>
 	<feature name="Disabled user"/>
-	<feature name="Don't trust online payment"/>
 	<feature name="No order to prepare"/>
-	<feature name="Delivery-specific article"/>
-	<feature name="Click and collect-only article"/>
-	<feature name="Home delivery-only article"/>
+	<feature name="Delivery-specific product"/>
+	<feature name="Click and collect-only product"/>
+	<feature name="Home delivery-only product"/>
 	<feature name="Online Shop features"/>
 	<feature name="Back Office"/>
 	<feature name="Product Edition"/>
